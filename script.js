@@ -40,6 +40,7 @@ var timerInterval=""
 function refresh(){
 
     document.querySelector(".gameovermessage").innerHTML=""
+    document.querySelector(".giphy-output").innerHTML=""
 
     correct=0;
     total=0;
@@ -159,6 +160,7 @@ function runTimer(){
         clearInterval(timerInterval)
         document.querySelector(".gameovermessage").innerHTML=`Congrats, you got ${correct} right out of ${total} questions, giving your a grade of ${grade_percent}%.`
         answerBtn.textContent="Start"
+        getgiphy()
     }
 }
 
@@ -168,6 +170,27 @@ function count(){
     timerInterval=setInterval(runTimer,1000)
     isRunning=true;
     }
+}
+
+
+function getgiphy(){
+    var apikey="6gRm9WZ0hk8YcvjvVS4tX2HAAnV5WmgE"
+    var url=`https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=billy+madison`
+
+    var xhr=new XMLHttpRequest();
+
+    xhr.open("GET",url,true);
+
+    xhr.onreadystatechange=function(){
+        if(xhr.status === 200 && xhr.readyState === 4){
+          //  console.log(this.responseText)
+            var res=JSON.parse(this.responseText);
+            console.log(res.data)
+            document.querySelector(".giphy-output").innerHTML=`<img src=${res.data[res.data.length * Math.random() | 0].images.fixed_height.url} alt=billy_madison>`
+        }
+    }
+
+    xhr.send()
 }
 
 
