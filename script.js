@@ -2,6 +2,9 @@ var changeDtoTH=document.querySelector(".d_to_th");
 var changeHattertoAdder=document.querySelector(".hatter_to_adder");
 var headerQuestions=document.querySelector(".header-questions")
 var inspirationDOM=document.querySelector("#inspiration")
+var gameplaydiv=document.querySelector(".gameplay-div");
+var giphydiv=document.querySelector(".giphy-div")
+    giphydiv.style.display='none'
 
 setTimeout(()=>{
     changeDtoTH.innerHTML="TH"
@@ -38,9 +41,11 @@ var timerInterval=""
 
 
 function refresh(){
-
+    document.querySelector("#answer").value=""
     document.querySelector(".gameovermessage").innerHTML=""
     document.querySelector(".giphy-output").innerHTML=""
+    giphydiv.style.display='none'
+    gameplaydiv.style.display='flex'
 
     correct=0;
     total=0;
@@ -158,7 +163,7 @@ function runTimer(){
 
     if(timer === 0){
         clearInterval(timerInterval)
-        document.querySelector(".gameovermessage").innerHTML=`Congrats, you got ${correct} right out of ${total} questions, giving your a grade of ${grade_percent}%.`
+        document.querySelector(".gameovermessage").innerHTML=`Congrats, you got ${correct} right out of ${total} questions, giving you a grade of ${grade_percent}%.`
         answerBtn.textContent="Start"
         getgiphy()
     }
@@ -186,7 +191,9 @@ function getgiphy(){
           //  console.log(this.responseText)
             var res=JSON.parse(this.responseText);
             console.log(res.data)
-            document.querySelector(".giphy-output").innerHTML=`<img src=${res.data[res.data.length * Math.random() | 0].images.fixed_height.url} alt=billy_madison>`
+            gameplaydiv.style.display='none'
+             giphydiv.style.display="block"
+             document.querySelector(".giphy-output").innerHTML=`<img src=${res.data[res.data.length * Math.random() | 0].images.fixed_height.url} alt=billy_madison>`
         }
     }
 
