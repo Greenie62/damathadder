@@ -1,0 +1,146 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Mansalva', cursive;
+}
+
+body{
+    background:lightblue;
+}
+
+header, footer{
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+    width:100%;
+    height:10vh;
+    background:green;
+    color:white;
+    text-shadow:1px 2px black;
+}
+
+footer{
+    height:5vh;
+}
+
+.header-da, .header-mad{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.header-da > h1{
+    margin-left:10px;
+    position:relative;
+}
+
+.d{
+    animation:d 1s forwards;
+}
+
+@keyframes d{
+    0%{left:-500px}
+    100%{left:0px}
+}
+
+.a{
+    animation:a 1s .5s forwards;
+    opacity:0;
+}
+
+@keyframes a{
+    0%{left:-500px;opacity:1}
+    100%{left:0px;opacity:1}
+}
+
+.ma{
+    position:relative;
+    animation:ma 1s 1s forwards;
+    opacity:0;
+}
+
+@keyframes ma{
+    0%{top:-200px}
+    100%{top:0px;opacity:1}
+}
+
+.d_to_th{
+    position:relative;
+    animation:d_to_th 1s 1s forwards;
+    opacity:0;
+}
+
+@keyframes d_to_th{
+    0%{top:-200px}
+    100%{top:0px;opacity:1}
+}
+
+.hatter_to_adder{
+    position:relative;
+    animation:hatter_to_adder 1s 1.5s forwards;
+    opacity:0;
+}
+
+@keyframes hatter_to_adder{
+    0%{left:500px}
+    100%{left:0px;opacity:1}
+}
+
+.header-questions{
+    position:relative;
+    animation:four 1s 2s forwards;
+    opacity:0;
+    transition:2s;
+}
+
+@keyframes four{
+    0%{opacity:.3}
+    50%{opacity:.6}
+    100%{opacity:1}
+    
+}
+
+
+.inspiration-row{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+
+.game-div{
+    height:60vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-evenly;
+}
+
+.player-info-div, .gameplay-div{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-evenly;
+}
+
+#answer{
+    width:200px;
+    height:25px;
+    outline:none;
+    background:lightgray;
+    text-align:center;
+    font-size:20px;
+}
+
+.answer-btn{
+    width:100px;
+    height:20px;
+    cursor:pointer;
+    transition:1s;
+}
+
+.answer-btn:hover{
+    background:gray;
+}
+
