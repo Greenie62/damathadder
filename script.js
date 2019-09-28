@@ -31,7 +31,7 @@ var numbertwo=0;
 var op=""
 var answer=0;
 var correctanswer=0;
-var timer=10;
+var timer=60;
 var isRunning=false;
 var timerInterval=""
 
@@ -45,7 +45,7 @@ function refresh(){
     total=0;
     grade_percent=0
     score=0;
-    timer=10;
+    timer=60;
     isRunning=false;
 
     questionTotalDOM.innerHTML=total
