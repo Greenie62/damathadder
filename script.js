@@ -106,7 +106,7 @@ var answerBtn=document.querySelector(".answer-btn");
 
 
 answerBtn.onclick=checkAnswer;
-generate_question()
+
 
 function checkAnswer(e){
 
